@@ -29,9 +29,17 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,names);
         listView.setAdapter(adapter);
-        /*listView.setOnItemClickListener((adapterView,view,position,id)->{
-            Toast.makeText(MainActivity.this,"Clicked: "+names.get(position),Toast.LENGTH_LONG).show();
-        });*/
+
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                            @Override
+                                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                Toast.makeText(MainActivity.this, "Clicked: " + names.get(position), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+
 
         MyAdapter myAdapter=new MyAdapter(this,R.layout.list_item,names);
         listView.setAdapter(myAdapter);
